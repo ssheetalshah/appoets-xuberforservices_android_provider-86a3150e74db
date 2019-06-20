@@ -105,7 +105,7 @@ public class SettingsServiceListAdapter extends RecyclerView.Adapter<SettingsSer
             Log.e("id is  " , ""+listModels.get(pos));
             if ( serviceClickListener != null && select) {
                 pos = (int) v.getTag();
-                ServiceListModel serviceListModel2 = listModels.get(pos);
+//             ServiceListModel serviceListModel = listModels.get(pos);
                 Log.e("id is  " , ""+listModels.get(pos));
                 if (!selectedService[pos] && serviceListModel.getAvailable().equalsIgnoreCase("false")) {
                     /*if (serviceListModel.getPricePerHour() != null && !serviceListModel.getPricePerHour().equalsIgnoreCase("null")
@@ -129,6 +129,7 @@ public class SettingsServiceListAdapter extends RecyclerView.Adapter<SettingsSer
                     selectedService[pos] = false;
                     service_list_name.setTextColor(ContextCompat.getColor(context, android.R.color.black));
                     serviceClickListener.onServiceUnSelect(selectedService, serviceListModel);
+//                    Toast.makeText(context, "sssssssss", Toast.LENGTH_SHORT).show();
                     serviceListModel.setAvailable("false");
                     selectImg.setVisibility(View.GONE);
                     servicePriceTxt.setVisibility(View.GONE);

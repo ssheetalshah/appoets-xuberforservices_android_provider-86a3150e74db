@@ -61,7 +61,7 @@ public class SubServiceActivity extends AppCompatActivity {
     private SubServiceAdapter subServiceAdapter;
     String vId,Name;
     TextView lblName,subSv;
-    ImageView userImg, backImg;
+    ImageView userImg, back_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,14 @@ public class SubServiceActivity extends AppCompatActivity {
         lblName = (TextView) findViewById(R.id.lblName);
         subSv = (TextView) findViewById(R.id.subSv);
         userImg = (ImageView) findViewById(R.id.profile_image);
+        back_img = (ImageView) findViewById(R.id.back_img);
+
+        back_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         setProviderDetails();
 
