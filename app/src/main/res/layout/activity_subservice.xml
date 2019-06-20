@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/btn_color">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_back" />
+
+        <com.xuber_for_services.provider.Utils.ClanProTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_9sdp"
+            android:layout_toRightOf="@+id/back_img"
+            android:text="@string/menu_settings"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_15sdp" />
+
+        <com.xuber_for_services.provider.Utils.ClanProTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_txt"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_13sdp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/nav_header"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:background="@color/nav_header"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_dummy_user" />
+
+        <com.xuber_for_services.provider.Utils.ClanProTextView
+            android:id="@+id/lblName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="Arun"
+            android:textColor="@color/btn_color"
+            android:textSize="@dimen/_13sdp" />
+
+
+        <LinearLayout
+            android:id="@+id/rytSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <com.xuber_for_services.provider.Utils.ClanProTextView
+                android:id="@+id/lblServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:text="Services"
+                android:textColor="@color/btn_color"
+                android:textSize="@dimen/_10sdp" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_weight="1"
+                android:progress="0"
+                android:progressDrawable="@drawable/seekbar_drawable"
+                android:thumb="@null"
+                android:thumbTintMode="multiply" />
+
+            <com.xuber_for_services.provider.Utils.ClanProTextView
+                android:id="@+id/lblCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/btn_color"
+                android:textSize="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/chat_text"
+            android:visibility="gone" />
+
+
+        <com.xuber_for_services.provider.Utils.ClanProTextView
+            android:id="@+id/subSv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/subServiceRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp" />
+
+
+        <com.xuber_for_services.provider.Utils.ClanProButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/offline"
+            android:text="@string/save"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_15sdp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

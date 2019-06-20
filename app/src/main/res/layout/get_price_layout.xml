@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_13sdp"
+        android:text="@string/price_title"
+        android:textColor="@android:color/white" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_11sdp">
+
+        <TextView
+            android:id="@+id/rupee_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_11sdp"
+            android:text="$" />
+
+        <EditText
+            android:id="@+id/ed_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_toLeftOf="@+id/price_txt"
+            android:layout_toRightOf="@+id/rupee_txt"
+            android:hint="@string/price"
+            android:inputType="number"
+            android:padding="@dimen/_11sdp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_13sdp" />
+
+        <TextView
+            android:id="@+id/price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_11sdp"
+            android:text="@string/price" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/_15sdp"
+        android:text="@string/submit"
+        android:textSize="@dimen/_13sdp" />
+
+</LinearLayout>
