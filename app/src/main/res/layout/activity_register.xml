@@ -172,6 +172,7 @@
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:maxLines="1"
+                        android:drawableRight="@drawable/toogle"
                         android:textColor="@color/btn_color" />
 
 

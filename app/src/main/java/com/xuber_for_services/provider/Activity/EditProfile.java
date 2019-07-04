@@ -18,8 +18,11 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -198,6 +201,107 @@ public class EditProfile extends AppCompatActivity {
 
         final AlertDialog dialog = builder.create();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        //***************************************************
+        currentPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (currentPassword.getRight() - currentPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+
+
+                        if (currentPassword.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+                            currentPassword.setTransformationMethod(new SingleLineTransformationMethod());
+                            currentPassword.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle_off, 0);
+                        }
+                        else {
+                            currentPassword.setTransformationMethod(new PasswordTransformationMethod());
+                            currentPassword.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle, 0);
+                        }
+
+                        currentPassword.setSelection(currentPassword.getText().length());
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+//***********************************************************
+        //***************************************************
+        newPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (newPassword.getRight() - newPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+
+
+                        if (newPassword.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+                            newPassword.setTransformationMethod(new SingleLineTransformationMethod());
+                            newPassword.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle_off, 0);
+                        }
+                        else {
+                            newPassword.setTransformationMethod(new PasswordTransformationMethod());
+                            newPassword.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle, 0);
+                        }
+
+                        newPassword.setSelection(newPassword.getText().length());
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+//***********************************************************
+        //***************************************************
+        confirmPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (confirmPassword.getRight() - confirmPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+
+
+                        if (confirmPassword.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+                            confirmPassword.setTransformationMethod(new SingleLineTransformationMethod());
+                            confirmPassword.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle_off, 0);
+                        }
+                        else {
+                            confirmPassword.setTransformationMethod(new PasswordTransformationMethod());
+                            confirmPassword.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle, 0);
+                        }
+
+                        confirmPassword.setSelection(confirmPassword.getText().length());
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+//***********************************************************
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

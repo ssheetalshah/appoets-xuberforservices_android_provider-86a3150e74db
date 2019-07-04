@@ -9,7 +9,10 @@ import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -77,6 +80,43 @@ public class ActivityPassword extends AppCompatActivity {
         setContentView(R.layout.activity_password);
         findViewByIdandInit();
         GetToken();
+
+
+
+        //***************************************************
+        password.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (password.getRight() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+
+
+                        if (password.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+                            password.setTransformationMethod(new SingleLineTransformationMethod());
+                            password.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle_off, 0);
+                        }
+                        else {
+                            password.setTransformationMethod(new PasswordTransformationMethod());
+                            password.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle, 0);
+                        }
+
+                        password.setSelection(password.getText().length());
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+//***********************************************************
+
         if (Build.VERSION.SDK_INT > 15) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
