@@ -122,14 +122,7 @@ public class ActivityEmail extends AppCompatActivity {
 
 
 
-   /* @Override
-    public void onBackPressed() {
-        SharedHelper.putKey(ActivityEmail.this,"email", "");
-        Intent mainIntent = new Intent(ActivityEmail.this, BeginScreen.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(mainIntent);
-        ActivityEmail.this.finish();
-    }*/
+
 
     @Override
     public void onBackPressed() {

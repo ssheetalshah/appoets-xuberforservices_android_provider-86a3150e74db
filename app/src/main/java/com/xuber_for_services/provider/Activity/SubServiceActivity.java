@@ -55,13 +55,14 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class SubServiceActivity extends AppCompatActivity {
+public class SubServiceActivity extends AppCompatActivity  {
     private RecyclerView subServiceRecyclerview;
     ArrayList<SubServiceModel> subSer_list;
     private SubServiceAdapter subServiceAdapter;
     String vId,Name;
     TextView lblName,subSv;
     ImageView userImg, back_img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,14 +87,14 @@ public class SubServiceActivity extends AppCompatActivity {
         subSer_list = new ArrayList<>();
 
         if (getIntent() != null) {
-            ServiceListModel serviceListModel = (ServiceListModel) getIntent().getSerializableExtra("ServiceListModel");
+          /*  ServiceListModel serviceListModel = (ServiceListModel) getIntent().getSerializableExtra("ServiceListModel");
             vId = serviceListModel.getId();
-            Name = serviceListModel.getName();
+            Name = serviceListModel.getName();*/
             //  vDesp = vehicles.getVehicleDescription();
         }
         subSv.setText(Name+" "+"Sub-Services you provide");
 
-        new PostReview().execute();
+
     }
 
     //------------------------------------------------
@@ -115,6 +116,7 @@ public class SubServiceActivity extends AppCompatActivity {
 
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("service_id", vId);
+            //    postDataParams.put("service_id", vId);
 
                 Log.e("postDataParams", postDataParams.toString());
 
@@ -180,7 +182,7 @@ public class SubServiceActivity extends AppCompatActivity {
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject dataObj = dataArray.getJSONObject(i);
                             String name = dataObj.getString("name");
-                            subSer_list.add(new SubServiceModel(name));
+                         //   subSer_list.add(new SubServiceModel(name));
                         }
                         setupRecyclerView();
 

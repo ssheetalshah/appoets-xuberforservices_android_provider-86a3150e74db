@@ -1,13 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE
     resources
-    [<!ENTITY appname "Xuber Service Provider">
-    <!ENTITY provider "Provider">
-    <!ENTITY providers "Providers">
-    <!ENTITY service "Service">
-    <!ENTITY services "Services">
-    <!ENTITY servicecap "SERVICES">
-    <!ENTITY user "User">]>
+    [<!ENTITY appname "Xuber Service Provider"><!ENTITY provider "Provider"><!ENTITY providers "Providers"><!ENTITY service "Service"><!ENTITY services "Services"><!ENTITY servicecap "SERVICES"><!ENTITY user "User">]>
 
 <resources>
 
@@ -142,7 +135,7 @@
     <string name="i_need_to_create_an_account">I need to create an account</string>
 
     <!-- Activity ForgetPassword -->
-    <string name="recover_password">Enter your mail ID for recovery</string>
+    <string name="recover_password">Enter your mobile no. for recovery</string>
 
     <!--Activity Register-->
     <string name="phone_number">Phone number</string>

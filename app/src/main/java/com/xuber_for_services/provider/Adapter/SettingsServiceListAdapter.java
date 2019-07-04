@@ -1,10 +1,13 @@
 package com.xuber_for_services.provider.Adapter;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +26,7 @@ import android.widget.Toast;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 import com.xuber_for_services.provider.Activity.SubServiceActivity;
+import com.xuber_for_services.provider.Fragments.SubServFregment;
 import com.xuber_for_services.provider.Helper.AppHelper;
 import com.xuber_for_services.provider.Models.ServiceListModel;
 import com.xuber_for_services.provider.R;
@@ -44,6 +48,7 @@ public class SettingsServiceListAdapter extends RecyclerView.Adapter<SettingsSer
     private RadioButton lastChecked = null;
     BottomSheetBehavior behavior;
     String TAG = "ServiceListAdapter";
+    public static String Sub_Service_id;
     private int pos;
     private ServiceClickListener serviceClickListener;
     ServiceListModel serviceListModel;
@@ -102,11 +107,11 @@ public class SettingsServiceListAdapter extends RecyclerView.Adapter<SettingsSer
         public void onClick(View v) {
             pos = (int) v.getTag();
             ServiceListModel serviceListModel = listModels.get(pos);
-            Log.e("id is  " , ""+listModels.get(pos));
-            if ( serviceClickListener != null && select) {
+            Log.e("id is  ", "" + listModels.get(pos));
+            if (serviceClickListener != null && select) {
                 pos = (int) v.getTag();
-//             ServiceListModel serviceListModel = listModels.get(pos);
-                Log.e("id is  " , ""+listModels.get(pos));
+//                ServiceListModel serviceListModel = listModels.get(pos);
+                Log.e("id is  ", "" + listModels.get(pos));
                 if (!selectedService[pos] && serviceListModel.getAvailable().equalsIgnoreCase("false")) {
                     /*if (serviceListModel.getPricePerHour() != null && !serviceListModel.getPricePerHour().equalsIgnoreCase("null")
                             && serviceListModel.getPricePerHour().length() > 0 &&
@@ -135,17 +140,28 @@ public class SettingsServiceListAdapter extends RecyclerView.Adapter<SettingsSer
                     servicePriceTxt.setVisibility(View.GONE);
                 }
             } else {
-                displayMessage();
+                displayMessage(serviceListModel);
             }
         }
     }
 
-    public void displayMessage() {
-        ServiceListModel serviceListModel = listModels.get(pos);
-        Intent intent = new Intent(context,SubServiceActivity.class);
-        intent.putExtra("ServiceListModel", serviceListModel);
-        context.startActivity(intent);
-     //  Toast.makeText(context, "Please contact admin to update your service", Toast.LENGTH_SHORT).show();
+    public void displayMessage(ServiceListModel serviceListModel) {
+      ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new SubServFregment())
+                .commit();
+        Bundle bundle = new Bundle();
+        Sub_Service_id = serviceListModel.getId();
+        Toast.makeText(context, "Settings service is "+serviceListModel.getId(), Toast.LENGTH_SHORT).show();
+        bundle.putString("key", Sub_Service_id); // Put anything what you want
+
+        SubServFregment subServFregment = new SubServFregment();
+        subServFregment.setArguments(bundle);
+
+//        ServiceListModel serviceListModel = listModels.get(pos);
+//        Intent intent = new Intent(context, SubServiceActivity.class);
+//        intent.putExtra("ServiceListModel", serviceListModel);
+//        context.startActivity(intent);
+//        Toast.makeText(context, "Please contact admin to update your service", Toast.LENGTH_SHORT).show();
     }
 
     @Override

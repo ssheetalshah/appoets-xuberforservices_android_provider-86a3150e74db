@@ -19,6 +19,16 @@ public class SharedHelper {
 
     }
 
+
+    public static void putKYC(Context context, Boolean kyc) {
+
+        sharedPreferences = context.getSharedPreferences("Cache", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        //editor.putString(Key, Value);
+     //   editor.putString(kyc, false);
+        editor.commit();
+
+    }
     public static String getKey(Context contextGetKey, String Key) {
         sharedPreferences = contextGetKey.getSharedPreferences("Cache", Context.MODE_PRIVATE);
         String Value = sharedPreferences.getString(Key, "");

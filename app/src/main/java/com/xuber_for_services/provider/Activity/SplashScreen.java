@@ -282,7 +282,7 @@ public class SplashScreen extends AppCompatActivity {
         }
     }
 
-    public void retry(){
+    public void retry() {
 
         if(retryCount != 0){
             retryCount = retryCount -1;

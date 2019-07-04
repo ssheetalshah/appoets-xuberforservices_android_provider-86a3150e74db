@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -165,8 +166,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 customDialog.dismiss();
-                Log.e("register_RESponce",response.toString());
+                Log.e("register_RESponce", response.toString());
                 utils.print("SignInResponse", response.toString());
+                Toast.makeText(context, "Registration Successful.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this, ActivityPassword.class);
+                startActivity(intent);
                 SharedHelper.putKey(RegisterActivity.this, "email", email.getText().toString());
                 SharedHelper.putKey(RegisterActivity.this, "password", password.getText().toString());
                 signIn();
@@ -212,7 +216,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 displayMessage(getString(R.string.please_try_again));
                             }
 
-                        } else {
+                        } /*else if (response.statusCode == 1000){
+
+                        } */ else {
                             displayMessage(getString(R.string.please_try_again));
                         }
 
@@ -263,7 +269,7 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     customDialog.dismiss();
                     utils.print("SignUpResponse", response.toString());
-                    Log.e("LOGIN_RESponce",response.toString());
+                    Log.e("LOGIN_RESponce", response.toString());
                     SharedHelper.putKey(context, "settings", "no");
                     SharedHelper.putKey(context, "access_token", response.optString("access_token"));
                     SharedHelper.putKey(context, "refresh_token", response.optString("refresh_token"));
@@ -313,8 +319,6 @@ public class RegisterActivity extends AppCompatActivity {
                         } catch (Exception e) {
                             displayMessage(getString(R.string.something_went_wrong));
                         }
-
-
                     }
                 }
             }) {

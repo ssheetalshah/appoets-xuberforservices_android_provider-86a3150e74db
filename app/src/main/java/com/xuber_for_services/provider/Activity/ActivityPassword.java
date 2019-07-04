@@ -29,6 +29,7 @@ import com.xuber_for_services.provider.Helper.AppHelper;
 import com.xuber_for_services.provider.Helper.ConnectionHelper;
 import com.xuber_for_services.provider.Helper.CustomDialog;
 import com.xuber_for_services.provider.Helper.SharedHelper;
+import com.xuber_for_services.provider.KycActivity;
 import com.xuber_for_services.provider.R;
 import com.xuber_for_services.provider.Utils.Utilities;
 import com.xuber_for_services.provider.XuberServicesApplication;
@@ -117,16 +118,14 @@ public class ActivityPassword extends AppCompatActivity {
             }
         });
 
-/*
-        forgetPasswordTxt.setOnClickListener(new View.OnClickListener() {
+       /* forgetPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedHelper.putKey(context,"password", "");
                 Intent mainIntent = new Intent(activity, ForgetPassword.class);
                 startActivity(mainIntent);
             }
-        });
-*/
+        });*/
 
 
     }
@@ -411,7 +410,7 @@ public class ActivityPassword extends AppCompatActivity {
     }
 
     public void GoToMainActivity() {
-        Intent mainIntent = new Intent(activity, Home.class);
+        Intent mainIntent = new Intent(activity, KycActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(mainIntent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

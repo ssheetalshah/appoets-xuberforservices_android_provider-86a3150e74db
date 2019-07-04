@@ -62,8 +62,8 @@ public class ForgetPassword extends AppCompatActivity {
         nextICON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (email.getText().toString().equals("") || email.getText().toString().equalsIgnoreCase(getString(R.string.sample_mail_id))) {
-                    displayMessage(getString(R.string.email_validation));
+                if (email.getText().toString().equals("") || email.getText().toString().equalsIgnoreCase(getString(R.string.sample_number))) {
+                    displayMessage(getString(R.string.mobile_number_empty));
                 } else {
                     forgetPassword();
                 }
@@ -91,7 +91,7 @@ public class ForgetPassword extends AppCompatActivity {
         try {
 
             SharedHelper.putKey(ForgetPassword.this, "email", email.getText().toString());
-            object.put("email", email.getText().toString());
+            object.put("mobile", email.getText().toString());
             Log.e("InputToLoginAPI", "" + object);
             Log.e("InputToLoginAPI", "" + object);
 
